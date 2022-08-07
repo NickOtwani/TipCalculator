@@ -18,13 +18,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        billAmountTextField.becomeFirstResponder()
     }
-    
     @IBAction func calculateTip(_ sender: Any) {
         let bill = Double(billAmountTextField.text!) ?? 0
         let tipP = Double(tipSlider.value)
-        tipPercent.text = String(format: "%.2f",tipP)
-        let tip = bill*tipP/100
+        tipPercent.text = String(format: "%.2f",tipP*100)
+        let tip = bill*tipP
         let total = Double(bill+tip)
         
         tipAmountLabel.text = String(format: "$%.2f",tip)
